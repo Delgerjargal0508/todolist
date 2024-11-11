@@ -1,0 +1,29 @@
+html{
+    background: linear-gradient(90deg, rgb(31, 23, 184) 0%, rgba(61,61,205,1) 35%, rgba(0,212,255,1) 100%);
+}
+
+body{
+    width: auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#appTitle{
+    text-align: center;
+}
+
+.container{
+    text-align: center;
+}
+
+#SubmitButton{
+    margin-left: 5px;
+}
+
+#instruction{
+    text-align: center;
+    list-style-type: none;
+}
+
+#taskContainer{
+    cursor: pointer;
+}
