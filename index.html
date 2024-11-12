@@ -3,20 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <title>To Do App</title>
 </head>
 <body>
-    <h1 id="appTitle">To Do App</h1>
-        <ul id="instruction">
-            <li>Single tap to mark completed.</li>
-            <li>Double tap to remove task.</li>
-        </ul>
-    </div>
     <div class="container">
-        <input type="text" id="inputField">
-        <button id="SubmitButton">Нэмэх</button>
-        <div id="taskContainer"></div>
+        <div class="addTask">
+            <input type="text" placeholder="Add task" id="input">
+            <button id="btn">+</button>
+        </div>
+        <div class="taskContainer"></div>
+        <ul id="task-list"></ul>
     </div>
     <script src="app.js"></script>
 </body>
