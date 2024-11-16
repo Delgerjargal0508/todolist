@@ -24,10 +24,12 @@ function addTask(){
 
     let editButton = document.createElement('button');
     editButton.textContent = 'Edit';
+    editButton.setAttribute('id', 'editButtonId')
     li.appendChild(editButton);
     
     let deleteButton = document.createElement('button');
     deleteButton.textContent = 'Delete';
+    deleteButton.setAttribute('id', 'deleteButtonId')
     li.appendChild(deleteButton);
 
     editButton.addEventListener('click', ()=> editTask(li));
@@ -37,6 +39,16 @@ function addTask(){
 function editTask(li) {
     const index = li.getAttribute('data-index');
     const input = document.createElement('input');
+    const editButtonInvisible = li.querySelector('#editButtonId');
+    const deleteButtonInvisible = li.querySelector('#deleteButtonId')
+    const saveButton = document.createElement('button');
+
+    saveButton.textContent = 'Save';
+    saveButton.setAttribute('id', 'saveButtonId');
+    editButtonInvisible.style.display = 'none';
+    deleteButtonInvisible.style.display = 'none';
+    li.appendChild(saveButton);
+
     input.value = tasks[index];
     const originalText = li.firstChild;
     li.replaceChild(input, originalText);
@@ -49,7 +61,10 @@ function editTask(li) {
 
     function saveEdit() {
         tasks[index] = input.value;
-        li.replaceChild(document.createTextNode(input.value), input);
+        li.replaceChild(document.createTextNode(input.value), input)
+        editButtonInvisible.style.display = 'block';
+        deleteButtonInvisible.style.display = 'block';;
+        saveButton.style.display = 'none';
     }
 }
 
