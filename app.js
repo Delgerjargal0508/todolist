@@ -4,7 +4,11 @@ const inputField = document.getElementById('input');
 const taskList = document.getElementById('task-list')
 
 submitButton.addEventListener('click', addTask);
-
+inputField.addEventListener('keyup', (event) =>{
+    if (event.key === 'Enter'){
+        addTask();
+    }
+})
 
 function addTask(){
     let newTask = inputField.value.trim();
