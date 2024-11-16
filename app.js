@@ -1,28 +1,28 @@
-var tasks = [];
-var submitButton = document.getElementById('btn');
-var inputField = document.getElementById('input');
-var taskList = document.getElementById('task-list')
+const tasks = [];
+const submitButton = document.getElementById('btn');
+const inputField = document.getElementById('input');
+const taskList = document.getElementById('task-list')
 
 submitButton.addEventListener('click', addTask);
 
 
 function addTask(){
-    var newTask = inputField.value.trim();
+    let newTask = inputField.value.trim();
     if(!newTask) return;
     tasks.push(newTask);
     inputField.value = '';
 
-    var li = document.createElement('li');
+    let li = document.createElement('li');
     li.textContent = newTask;
-    var currentIndex = tasks.length - 1;
+    let currentIndex = tasks.length - 1;
     li.setAttribute('data-index', currentIndex);
     taskList.appendChild(li);
 
-    var editButton = document.createElement('button');
+    let editButton = document.createElement('button');
     editButton.textContent = 'Edit';
     li.appendChild(editButton);
     
-    var deleteButton = document.createElement('button');
+    let deleteButton = document.createElement('button');
     deleteButton.textContent = 'Delete';
     li.appendChild(deleteButton);
 
