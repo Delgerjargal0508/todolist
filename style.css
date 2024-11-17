@@ -60,3 +60,13 @@ li{
     border-bottom: 1px solid #ddd;
     margin-bottom: 20px;
 }
+
+button{
+    cursor: pointer;
+}
+
+p{
+    font-size: smaller;
+    text-align: left;
+    margin-left: 180px;
+}

@@ -21,6 +21,10 @@ function addTask(){
     let currentIndex = tasks.length - 1;
     li.setAttribute('data-index', currentIndex);
     taskList.appendChild(li);
+    li.style.cursor = 'pointer'
+    li.addEventListener('click', function(){
+        li.style.textDecoration = 'line-through';
+    })
 
     let editButton = document.createElement('button');
     editButton.textContent = 'Edit';
