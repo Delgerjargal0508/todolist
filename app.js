@@ -15,39 +15,27 @@ function addTask(){
     if(!newTask) return;
     tasks.push(newTask);
     inputField.value = '';
-
     let li = document.createElement('li');
     let spanText = document.createElement('span');
     spanText.textContent = newTask;
     li.appendChild(spanText);
-
     let currentIndex = tasks.length - 1;
     li.setAttribute('data-index', currentIndex);
     taskList.appendChild(li);
-
     li.addEventListener('click', ()=>{
         spanText.classList.toggle('completed');
     })
-
-
-
     let editButton = document.createElement('button');
     editButton.textContent = 'Edit';
     editButton.setAttribute('id', 'editButtonId')
     li.appendChild(editButton);
-
-
-
-    
     let deleteButton = document.createElement('button');
     deleteButton.textContent = 'Delete';
     deleteButton.setAttribute('id', 'deleteButtonId')
     li.appendChild(deleteButton);
-
     editButton.addEventListener('click', ()=> editTask(li));
     deleteButton.addEventListener('click', ()=> deleteTask(li));
 }
-
 
 function editTask(li) {
     const index = li.getAttribute('data-index');
@@ -62,22 +50,28 @@ function editTask(li) {
     deleteButtonInvisible.style.display = 'none';
     li.appendChild(saveButton);
 
+    const originalSpan = li.querySelector('span');  // Get the original span
     input.value = tasks[index];
-    const originalText = li.firstChild;
-    li.replaceChild(input, originalText);
-    input.focus();
+    li.replaceChild(input, originalSpan);
 
     input.addEventListener('keyup', function(e) {
         if (e.key === 'Enter') saveEdit();
     });
-    input.addEventListener('blur', saveEdit);
+    saveButton.addEventListener('click', saveEdit);
 
     function saveEdit() {
         tasks[index] = input.value;
-        li.replaceChild(document.createTextNode(input.value), input)
-        editButtonInvisible.style.display = 'block';
-        deleteButtonInvisible.style.display = 'block';;
-        saveButton.style.display = 'none';
+        const newSpan = document.createElement('span');  // Create new span
+        newSpan.textContent = input.value;  // Set text content
+        li.replaceChild(newSpan, input);  // Replace input with span
+        editButtonInvisible.style.display = 'inline-block';
+        deleteButtonInvisible.style.display = 'inline-block';
+        saveButton.remove();  // Remove save button instead of hiding it
+        
+        // Restore click event for completion toggle
+        newSpan.addEventListener('click', () => {
+            newSpan.classList.toggle('completed');
+        });
     }
 }
 
