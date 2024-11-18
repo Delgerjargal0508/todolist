@@ -6,6 +6,9 @@ body{
     background: linear-gradient(90deg, rgba(105,105,105,1) 0%, rgba(203,203,203,1) 52%, rgba(255,255,255,1) 100%);
 }
 .container{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     background-color: white;
     width: 800px;
     height: 800px;
@@ -13,9 +16,6 @@ body{
     text-align: center;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding: 20px;
-    margin-top: 70px;
-    margin-left: 550px;
-    overflow: scroll;
 }
 
 #input{
@@ -38,11 +38,10 @@ body{
 .taskContainer{
     vertical-align: middle;
     width: 400px;
-    margin-top: 20px;
-    margin-left: 190px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     text-align: left;
-    display: flex;
-    flex-direction: row;
     justify-content: space-between;
 }
 
@@ -58,7 +57,7 @@ li{
     align-items: center;
     padding: 10px;
     border-bottom: 1px solid #ddd;
-    margin-bottom: 20px;
+    cursor: pointer;
 }
 
 button{
@@ -69,4 +68,10 @@ p{
     font-size: smaller;
     text-align: left;
     margin-left: 180px;
+}
+
+
+
+.completed{
+    text-decoration: line-through;
 }

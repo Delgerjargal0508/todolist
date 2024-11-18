@@ -17,19 +17,27 @@ function addTask(){
     inputField.value = '';
 
     let li = document.createElement('li');
-    li.textContent = newTask;
+    let spanText = document.createElement('span');
+    spanText.textContent = newTask;
+    li.appendChild(spanText);
+
     let currentIndex = tasks.length - 1;
     li.setAttribute('data-index', currentIndex);
     taskList.appendChild(li);
-    li.style.cursor = 'pointer'
-    li.addEventListener('click', function(){
-        li.style.textDecoration = 'line-through';
+
+    li.addEventListener('click', ()=>{
+        spanText.classList.toggle('completed');
     })
+
+
 
     let editButton = document.createElement('button');
     editButton.textContent = 'Edit';
     editButton.setAttribute('id', 'editButtonId')
     li.appendChild(editButton);
+
+
+
     
     let deleteButton = document.createElement('button');
     deleteButton.textContent = 'Delete';
@@ -39,6 +47,7 @@ function addTask(){
     editButton.addEventListener('click', ()=> editTask(li));
     deleteButton.addEventListener('click', ()=> deleteTask(li));
 }
+
 
 function editTask(li) {
     const index = li.getAttribute('data-index');
