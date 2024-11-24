@@ -50,7 +50,7 @@ function editTask(li) {
     deleteButtonInvisible.style.display = 'none';
     li.appendChild(saveButton);
 
-    const originalSpan = li.querySelector('span');  // Get the original span
+    const originalSpan = li.querySelector('span');
     input.value = tasks[index];
     li.replaceChild(input, originalSpan);
 
@@ -61,14 +61,13 @@ function editTask(li) {
 
     function saveEdit() {
         tasks[index] = input.value;
-        const newSpan = document.createElement('span');  // Create new span
-        newSpan.textContent = input.value;  // Set text content
-        li.replaceChild(newSpan, input);  // Replace input with span
+        const newSpan = document.createElement('span');
+        newSpan.textContent = input.value;
+        li.replaceChild(newSpan, input);
         editButtonInvisible.style.display = 'inline-block';
         deleteButtonInvisible.style.display = 'inline-block';
-        saveButton.remove();  // Remove save button instead of hiding it
+        saveButton.remove();
         
-        // Restore click event for completion toggle
         newSpan.addEventListener('click', () => {
             newSpan.classList.toggle('completed');
         });
