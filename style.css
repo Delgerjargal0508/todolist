@@ -163,7 +163,6 @@ body {
     border-color: #2196F3;
 }
 
-/* Scrollbar styling */
 .taskContainer::-webkit-scrollbar {
     width: 8px;
 }
